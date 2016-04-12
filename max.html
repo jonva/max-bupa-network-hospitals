@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="hosplist.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-app="maxBupaApp" ng-controller="MainCtrl">
+        <div class="container">
+            <h4 class="title">List of Network Hospitals for Max Bupa Insurance</h4>
+            </br>
+            <div class="input-group row">
+                <input type="text" class="form-control" placeholder="Search for hospital" ng-model="searchString">
+                <span class="input-group-addon glyphicon glyphicon-search" id="search-string"></span>
+            </div>
+            </br>
+            <ul class="hospList list-group row">
+                <li class="hospItem list-group-item" ng-repeat="hosp in hospList | filter : searchString">
+                    <p class="hospNameTitle  list-group-item active" ng-bind="'Hospital Name &amp; Address'"></p>
+                    <p class="hospName list-group-item" ng-bind="hosp.address"></p>
+                    <p class="hospPhone list-group-item">
+                        <span ng-bind="hosp.phone"></span>
+                        <span class="badge pull-left">Phone</span>
+                    </p>
+                    <p class="hospFax list-group-item">
+                        <span ng-bind="hosp.fax"></span>
+                        <span class="badge pull-left">Fax</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
+                    
